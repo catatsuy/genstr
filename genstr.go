@@ -23,11 +23,11 @@ func RandomLNStr(n int) string {
 }
 
 func randomStr(n int, s []rune) string {
-	m2 := make([]byte, 0, n)
+	buf := make([]byte, 0, n)
 	for i := 0; i < n; i++ {
-		m2 = append(m2, byte(s[random.Int()%len(s)]))
+		buf = append(buf, byte(s[random.Int()%len(s)]))
 	}
-	return string(m2)
+	return string(buf)
 }
 
 func SecureRandomStr(n int) string {
