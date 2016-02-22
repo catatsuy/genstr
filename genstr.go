@@ -1,7 +1,6 @@
 package genstr
 
 import (
-	"bytes"
 	crand "crypto/rand"
 	"encoding/base64"
 	"io"
@@ -24,12 +23,11 @@ func RandomLNStr(n int) string {
 }
 
 func randomStr(n int, s []rune) string {
-	bf := bytes.NewBuffer(make([]byte, 0, n))
-
+	m2 := make([]byte, 0, n)
 	for i := 0; i < n; i++ {
-		bf.WriteRune(s[random.Int()%len(s)])
+		m2 = append(m2, byte(s[random.Int()%len(s)]))
 	}
-	return bf.String()
+	return string(m2)
 }
 
 func SecureRandomStr(n int) string {
